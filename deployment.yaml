@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-webserver
+  labels:
+    app: python-webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-webserver
+  template:
+    metadata:
+      labels:
+        app: python-webserver
+    spec:
+      containers:
+      - name: python-webserver
+        image: farooqkadri/python-webserver:latest
+        ports:
+        - containerPort: 8000
